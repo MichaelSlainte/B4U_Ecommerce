@@ -1,0 +1,33 @@
+<html>
+  <head></head>
+  <body>
+    <div class="signup">
+       <h2>Showing Profile</h2>
+    </div>
+
+    <table class="users_table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Last name</th>
+        <th>Address</th>
+        <th>Phone</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= @profile.firstName %></td>
+        <td><%= @profile.lastName %></td>
+        <td><%= @profile.address %></td>
+        <td><%= @profile.phone %></td>
+      </tr>
+      </tbody>
+    </table>
+  </body>
+  <div class="bottom-links">
+    <%= link_to 'Edit', edit_profile_path(@profile) %> |
+    <%= link_to 'Back', profiles_path %> |
+    <%= link_to 'Home', root_path %> |
+    <%= link_to 'Shop', products_path %>
+  </div>
+</html>

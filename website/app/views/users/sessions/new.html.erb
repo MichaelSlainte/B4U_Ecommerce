@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+<body>
+
+  <header>
+    <nav>
+      <div class="row">
+        <img src="/assets/logo.png" alt="logo" class="logo">
+        <img src="/assets/logo1.png" alt="logo1" class="logo1">
+
+        <div class="user_session">
+          <ul>
+            <% if user_signed_in? %>
+               <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+               <li><%= link_to('Profile', profiles_path) %></li>
+            <% else %>
+               <li><%= link_to('Login', user_session_path) %></li>
+            <% end %>
+            <li>
+              <% if user_signed_in? %>
+                <%= current_user.email %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
+    
+        <ul class="main-nav-1 js--main-nav">
+          <li><a href="/cart"> <i class="material-icons">shopping_cart</i></a></li>
+          <li><a href="/homepage">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="hero-text-box">
+      <h1>Login bellow to get even more from B4U!</h1>
+    </div>
+  </header>
+
+
+  <section class="col span-1-of-3 js--section-features" id="user_login">
+    
+    <div class="title">
+      <p>
+        Login or click Sign up bellow to create a new profile.
+      </p>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+      </div>
+    
+    
+      <div class="field">
+        <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+    
+     <% end %>
+    <div>
+      <%= render "users/shared/links" %>
+      <%= link_to "Home", root_path%>
+    </div>
+  </section>
+
+</body>
+
+</html>

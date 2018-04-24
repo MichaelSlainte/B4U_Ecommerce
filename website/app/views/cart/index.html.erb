@@ -1,0 +1,53 @@
+<html>
+  <head></head>
+  <body>
+    <div class="title">
+       <h1>Your Cart</h1>
+    </div>
+    <div class="title">
+      <% if @cart.empty? %>
+      <p style = "color:red;">Cart is empty</p>
+      <% end %>
+    </div>
+
+ <% total = 0 %>
+
+ <table class="cart_table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Qty</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @cart.each do |id,quantity | %>
+        <% product = Product.find_by_id(id) %>
+        <tr>
+          <td><%= link_to product.name, product %></td>
+          <td><%= number_to_currency(product.price) %></td>
+          <td><%= quantity %><br /></td>
+          <td><%= number_to_currency(quantity * product.price, :unit => "€ ") %></td>
+        </tr>
+        <% total += quantity * product.price %>
+        <% end %>
+
+        <tr>
+          <td colspan="4">
+            <div>Total:</div>
+          </td>
+          <td>
+            <div><%= number_to_currency(total, :unit => "€ ") %></div>
+          </td>
+        </tr>
+    </tbody>
+ </table>
+    <div class="bottom-links">
+      <%= link_to 'Continue Shopping', :controller => :products %></br></br>
+      <% if ! @cart.empty? %>
+      <%= link_to 'Confirm and checkout', cart_checkout_path %>
+      <% end %>
+    </div>
+  </body>
+</html>
