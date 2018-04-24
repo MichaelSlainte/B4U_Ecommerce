@@ -1,4 +1,4 @@
-# B4U_Ecommerce Linked with Blog: https://github.com/paulb42/alpha-blog
+# B4U_Ecommerce - Linked to blog as parte of the project: https://github.com/paulb42/alpha-blog
 This is a project developed in accordance to requirements for the discipline of Server Side Development, from the Science and Computing with Software Development Specialization course of National College of Ireland.
 
 The project consists in a website + webstore for a Bike Shop called B4U Bikes.
