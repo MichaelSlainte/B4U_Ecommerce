@@ -19,3 +19,6 @@ Ubuntu 14.04
 Ruby on Rails
 Javascript
 SQLite3
+
+
+youtube: https://www.youtube.com/watch?v=_b1RgWSBTLY&t=3s
